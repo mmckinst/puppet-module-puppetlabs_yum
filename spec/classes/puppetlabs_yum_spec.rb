@@ -90,7 +90,8 @@ describe 'puppetlabs_yum' do
   context 'osfamily => Debian' do
     let :facts do
       {
-        :osfamily => 'Debian',
+        :osfamily                   => 'Debian',
+        :operatingsystemmajrelease  => '8',
       }
     end
 
