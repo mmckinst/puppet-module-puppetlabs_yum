@@ -11,7 +11,6 @@
 #  include puppetlabs
 #
 class puppetlabs_yum (
-  $collection_number         = $puppetlabs_yum::params::collection_number,
   $products_baseurl          = $puppetlabs_yum::params::products_baseurl,
   $deps_baseurl              = $puppetlabs_yum::params::deps_baseurl,
   $devel_baseurl             = $puppetlabs_yum::params::devel_baseurl,

@@ -1,6 +1,7 @@
 # Private class
 class puppetlabs_yum::params (
-  $urlbase = 'http://yum.puppetlabs.com',
+  $urlbase           = 'http://yum.puppetlabs.com',
+  $collection_number = 1,
 ) {
 
   if $::operatingsystemmajrelease {
@@ -21,7 +22,6 @@ class puppetlabs_yum::params (
     }
   }
 
-  $collection_number         = 1
   $products_baseurl          = "${urlbase}/${urlbit}/products/\$basearch"
   $deps_baseurl              = "${urlbase}/${urlbit}/dependencies/\$basearch"
   $devel_baseurl             = "${urlbase}/${urlbit}/devel/\$basearch"
