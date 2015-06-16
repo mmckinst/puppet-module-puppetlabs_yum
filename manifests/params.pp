@@ -21,17 +21,22 @@ class puppetlabs_yum::params (
     }
   }
 
-  $products_baseurl         = "${urlbase}/${urlbit}/products/\$basearch"
-  $deps_baseurl             = "${urlbase}/${urlbit}/dependencies/\$basearch"
-  $devel_baseurl            = "${urlbase}/${urlbit}/devel/\$basearch"
-  $products_source_baseurl  = "${urlbase}/${urlbit}/products/SRPMS"
-  $deps_source_baseurl      = "${urlbase}/${urlbit}/dependencies/SRPMS"
-  $devel_source_baseurl     = "${urlbase}/${urlbit}/devel/SRPMS"
-  $products_descr           = "Puppet Labs Products ${ostype} ${os_maj_release} - \$basearch"
-  $deps_descr               = "Puppet Labs Dependencies ${ostype} ${os_maj_release} - \$basearch"
-  $devel_descr              = "Puppet Labs Devel ${ostype} ${os_maj_release} - \$basearch"
-  $products_source_descr    = "Puppet Labs Products ${ostype} ${os_maj_release} - \$basearch - Source"
-  $deps_source_descr        = "Puppet Labs Dependencies ${ostype} ${os_maj_release} - \$basearch - Source"
-  $devel_source_descr       = "Puppet Labs Devel ${ostype} ${os_maj_release} - \$basearch - Source"
+  $collection_number         = 1
+  $products_baseurl          = "${urlbase}/${urlbit}/products/\$basearch"
+  $deps_baseurl              = "${urlbase}/${urlbit}/dependencies/\$basearch"
+  $devel_baseurl             = "${urlbase}/${urlbit}/devel/\$basearch"
+  $collection_baseurl        = "${urlbase}/${urlbit}/PC${collection_number}/\$basearch"
+  $products_source_baseurl   = "${urlbase}/${urlbit}/products/SRPMS"
+  $deps_source_baseurl       = "${urlbase}/${urlbit}/dependencies/SRPMS"
+  $devel_source_baseurl      = "${urlbase}/${urlbit}/devel/SRPMS"
+  $collection_source_baseurl = "${urlbase}/${urlbit}/PC${collection_number}/SRPMS"
+  $products_descr            = "Puppet Labs Products ${ostype} ${os_maj_release} - \$basearch"
+  $deps_descr                = "Puppet Labs Dependencies ${ostype} ${os_maj_release} - \$basearch"
+  $devel_descr               = "Puppet Labs Devel ${ostype} ${os_maj_release} - \$basearch"
+  $collection_descr          = "Puppet Labs Collection ${collection_number} ${ostype} ${os_maj_release} - \$basearch"
+  $products_source_descr     = "Puppet Labs Products ${ostype} ${os_maj_release} - \$basearch - Source"
+  $deps_source_descr         = "Puppet Labs Dependencies ${ostype} ${os_maj_release} - \$basearch - Source"
+  $devel_source_descr        = "Puppet Labs Devel ${ostype} ${os_maj_release} - \$basearch - Source"
+  $collection_source_descr   = "Puppet Labs Collection ${collection_number} ${ostype} ${os_maj_release} - \$basearch - Source"
 
 }

@@ -7,7 +7,8 @@ describe 'puppetlabs_yum' do
     it { should contain_class('puppetlabs_yum::gpg_key').that_comes_before('Class[puppetlabs_yum::products]') }
     it { should contain_class('puppetlabs_yum::products').that_comes_before('Class[puppetlabs_yum::deps]') }
     it { should contain_class('puppetlabs_yum::deps').that_comes_before('Class[puppetlabs_yum::devel]') }
-    it { should contain_class('puppetlabs_yum::devel').that_comes_before('Anchor[puppetlabs_yum::end]') }
+    it { should contain_class('puppetlabs_yum::devel').that_comes_before('Class[puppetlabs_yum::collection]') }
+    it { should contain_class('puppetlabs_yum::collection').that_comes_before('Anchor[puppetlabs_yum::end]') }
     it { should contain_anchor('puppetlabs_yum::end') }
   end
 
@@ -18,6 +19,7 @@ describe 'puppetlabs_yum' do
     it { should_not contain_class('puppetlabs_yum::products') }
     it { should_not contain_class('puppetlabs_yum::deps') }
     it { should_not contain_class('puppetlabs_yum::devel') }
+    it { should_not contain_class('puppetlabs_yum::collection') }
     it { should_not contain_anchor('puppetlabs_yum::end') }
   end
 
@@ -35,6 +37,7 @@ describe 'puppetlabs_yum' do
     it_behaves_like 'puppetlabs_yum::products-el6'
     it_behaves_like 'puppetlabs_yum::deps-el6'
     it_behaves_like 'puppetlabs_yum::devel-el6'
+    it_behaves_like 'puppetlabs_yum::collection-el6'
 
     context 'when operatingsystemmajrelease is undef' do
       let :facts do
@@ -50,6 +53,7 @@ describe 'puppetlabs_yum' do
       it_behaves_like 'puppetlabs_yum::products-el6'
       it_behaves_like 'puppetlabs_yum::deps-el6'
       it_behaves_like 'puppetlabs_yum::devel-el6'
+      it_behaves_like 'puppetlabs_yum::collection-el6'
     end
   end
 
@@ -67,6 +71,7 @@ describe 'puppetlabs_yum' do
     it_behaves_like 'puppetlabs_yum::products-f20'
     it_behaves_like 'puppetlabs_yum::deps-f20'
     it_behaves_like 'puppetlabs_yum::devel-f20'
+    it_behaves_like 'puppetlabs_yum::collection-f20'
   end
 
   context 'is_pe => true' do
