@@ -34,7 +34,7 @@ class puppetlabs_yum (
   $enable_collection         = false,
 ) inherits puppetlabs_yum::params {
 
-  if $::is_pe == 'false' or $::is_pe == undef {
+  if $::is_pe == 'false' or $::is_pe == false or $::is_pe == undef {
 
     if $::osfamily == 'RedHat' {
       include puppetlabs_yum::gpg_key
