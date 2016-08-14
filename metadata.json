@@ -1,0 +1,41 @@
+{
+  "name": "stahnma-puppetlabs_yum",
+  "version": "1.0.0",
+  "author": "stahnma",
+  "summary": "Setup the Puppet Labs Yum package repo",
+  "license": "Apache-2.0",
+  "source": "https://github.com/stahnma/puppet-module-puppetlabs_yum",
+  "project_page": "https://github.com/stahnma/puppet-module-puppetlabs_yum",
+  "issues_url": "https://github.com/stahnma/puppet-module-puppetlabs_yum/issues",
+  "tags": [],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.2.0 < 5.0.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 2.0.0 < 5.0.0"
+    }
+  ]
+}

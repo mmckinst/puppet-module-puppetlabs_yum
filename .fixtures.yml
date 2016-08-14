@@ -1,0 +1,6 @@
+fixtures:
+  forge_modules:
+    stdlib:
+      repo: puppetlabs/stdlib
+  symlinks:
+    puppetlabs_yum: "#{source_dir}"
