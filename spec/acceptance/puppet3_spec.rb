@@ -4,8 +4,8 @@ describe 'puppetlabs_yum::puppet3 class' do
   it 'should run successfully' do
     pp = <<-EOS
          class { '::puppetlabs_yum': 
-           puppet3_repo_install => true,
-           pc1_repo_install     => false,
+           install_puppet3_repo => true,
+           install_pc1_repo     => false,
          }
          EOS
     # Apply twice to ensure no errors the second time.

@@ -17,7 +17,7 @@ describe 'puppetlabs_yum' do
   
           context "with the repo installed and no custom parameters" do
             let(:params) {{
-              :puppet3_repo_install   => true,
+              :install_puppet3_repo => true,
             }}
             it { is_expected.to contain_class('puppetlabs_yum') }
             it { is_expected.to contain_yumrepo('puppetlabs-products').with(
@@ -59,19 +59,15 @@ describe 'puppetlabs_yum' do
  	  end
           context "with the repo installed and custom parameters" do
             let(:params) {{
-              :puppet3_repo_install   => true,
-              :puppet3_products_enabled            => false,
-              :puppet3_products_source_enabled     => true,
-              :puppet3_dependencies_enabled        => false,
-              :puppet3_dependencies_source_enabled => true,
-              :puppet3_devel_enabled               => true,
-              :puppet3_devel_source_enabled        => true,
-              :url_prefix                          => 'https://mirror.example.com/puppetlabs/yum',
-              :puppetlabs_gpgkey                   => 'https://mirror.example.com/puppetlabs/yum/RPM-GPG-KEY-puppetlabs',
+              :url_prefix           => 'https://mirror.example.com/puppetlabs/yum',
+              :puppetlabs_gpgkey    => 'https://mirror.example.com/puppetlabs/yum/RPM-GPG-KEY-puppetlabs',
+              :enable_source_repos  => true,
+              :enable_devel_repo    => true,
+              :install_puppet3_repo => true,
             }}
             it { is_expected.to contain_yumrepo('puppetlabs-products').with(
               'baseurl'  => "https://mirror.example.com/puppetlabs/yum/#{os_url}/products/#{facts[:architecture]}",
-              'enabled'  => '0',
+              'enabled'  => '1',
               'gpgkey'   => 'https://mirror.example.com/puppetlabs/yum/RPM-GPG-KEY-puppetlabs')}
             it { is_expected.to contain_yumrepo('puppetlabs-products-source').with(
               'baseurl'  => "https://mirror.example.com/puppetlabs/yum/#{os_url}/products/SRPMS",
@@ -79,7 +75,7 @@ describe 'puppetlabs_yum' do
               'gpgkey'   => 'https://mirror.example.com/puppetlabs/yum/RPM-GPG-KEY-puppetlabs')}
             it { is_expected.to contain_yumrepo('puppetlabs-dependencies').with(
               'baseurl'  => "https://mirror.example.com/puppetlabs/yum/#{os_url}/dependencies/#{facts[:architecture]}",
-              'enabled'  => '0',
+              'enabled'  => '1',
               'gpgkey'   => 'https://mirror.example.com/puppetlabs/yum/RPM-GPG-KEY-puppetlabs')}
             it { is_expected.to contain_yumrepo('puppetlabs-dependencies-source').with(
               'baseurl'  => "https://mirror.example.com/puppetlabs/yum/#{os_url}/dependencies/SRPMS",

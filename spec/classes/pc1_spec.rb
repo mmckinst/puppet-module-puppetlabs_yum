@@ -32,15 +32,14 @@ describe 'puppetlabs_yum' do
 	  end
           context "custom parameters" do
             let(:params) {{
-              :url_prefix         => 'https://mirror.example.com/puppetlabs/yum',
-              :pc1_enabled        => false,
-              :pc1_source_enabled => true,
-              :puppetlabs_gpgkey  => 'https://mirror.example.com/puppetlabs/yum/RPM-GPG-KEY-puppetlabs',
+              :url_prefix          => 'https://mirror.example.com/puppetlabs/yum',
+              :puppetlabs_gpgkey   => 'https://mirror.example.com/puppetlabs/yum/RPM-GPG-KEY-puppetlabs',
+              :enable_source_repos => true,
             }}
 
             it { is_expected.to contain_yumrepo('puppetlabs-pc1').with(
               'baseurl'  => "https://mirror.example.com/puppetlabs/yum/#{os_url}/PC1/#{facts[:architecture]}",
-              'enabled'  => '0',
+              'enabled'  => '1',
               'gpgkey'   => 'https://mirror.example.com/puppetlabs/yum/RPM-GPG-KEY-puppetlabs')}
             it { is_expected.to contain_yumrepo('puppetlabs-pc1-source').with(
               'baseurl'  => "https://mirror.example.com/puppetlabs/yum/#{os_url}/PC1/SRPMS",

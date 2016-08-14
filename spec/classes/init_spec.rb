@@ -16,8 +16,8 @@ describe 'puppetlabs_yum' do
 	end
         context "puppetlabs_yum class with puppet3 enabled and pc1 disabled" do
           let(:params) {{
-            :puppet3_repo_install   => true,
-            :pc1_repo_install       => false,
+            :install_puppet3_repo   => true,
+            :install_pc1_repo       => false,
           }}
 
           it { is_expected.to compile.with_all_deps }
