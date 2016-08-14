@@ -1,8 +1,0 @@
-.idea
-.vagrant
-.ruby-version
-.rvmrc
-Gemfile.lock
-metadata.json
-spec/fixtures
-pkg/
